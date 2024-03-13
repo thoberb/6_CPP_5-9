@@ -3,20 +3,20 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bberthod <bberthod@student.42.fr>          +#+  +:+       +#+         #
+#    By: blandineberthod <blandineberthod@studen    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/03/05 20:42:45 by bberthod          #+#    #+#              #
-#    Updated: 2024/03/05 20:43:15 by bberthod         ###   ########.fr        #
+#    Created: 2024/03/05 20:42:35 by bberthod          #+#    #+#              #
+#    Updated: 2024/03/13 15:16:14 by blandineber      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
+SRC = main.cpp Bureaucrat.cpp Form.cpp
 OBJ = $(SRC:.cpp=.o)
 CC = c++
 RM = rm -f
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = ClasseAbstraite
+NAME = FormUpMaggots
 
 all: $(NAME)
 

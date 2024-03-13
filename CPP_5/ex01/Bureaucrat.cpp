@@ -6,7 +6,7 @@
 /*   By: blandineberthod <blandineberthod@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 20:48:54 by bberthod          #+#    #+#             */
-/*   Updated: 2024/03/13 15:40:34 by blandineber      ###   ########.fr       */
+/*   Updated: 2024/03/13 15:40:16 by blandineber      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,3 +79,16 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& b)
 	return os;
 }
 
+void Bureaucrat::signForm(Form& form)
+{
+	if (_grade <= form.getGradeSign())
+	{
+		std::cout << BLUE << _name << " signed " << form.getName() << RESET << std::endl;
+		form.setSignature(true);
+	}
+	else
+	{
+		std::cout << BLUE << _name << " couldn't sign " << form.getName() << " because his grade is too low" RESET << std::endl;
+		throw GradeTooLowException();
+	}
+}
