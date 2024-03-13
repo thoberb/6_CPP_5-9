@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bberthod <bberthod@student.42.fr>          +#+  +:+       +#+         #
+#    By: blandineberthod <blandineberthod@studen    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/05 20:42:35 by bberthod          #+#    #+#              #
-#    Updated: 2024/03/05 20:45:12 by bberthod         ###   ########.fr        #
+#    Updated: 2024/03/13 13:34:05 by blandineber      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = main.cpp Bureaucrat.hpp Bureaucrat.cpp
+SRC = main.cpp Bureaucrat.cpp
 OBJ = $(SRC:.cpp=.o)
 CC = c++
 RM = rm -f
