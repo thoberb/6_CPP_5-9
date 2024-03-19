@@ -6,7 +6,7 @@
 /*   By: blandineberthod <blandineberthod@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 20:47:42 by bberthod          #+#    #+#             */
-/*   Updated: 2024/03/13 15:44:22 by blandineber      ###   ########.fr       */
+/*   Updated: 2024/03/19 17:06:19 by blandineber      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,56 +14,63 @@
 #include "AForm.hpp"
 #include <iostream>
 
+#include "Bureaucrat.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+
 int main() {
+	srand(static_cast<unsigned int>(time(NULL)));
 	try {
-		// Test constructing Bureaucrats with valid grades
-		Bureaucrat alice("Alice", 2);
-		Bureaucrat bob("Bob", 140);
+		Bureaucrat alice("Alice", 6);
+		PresidentialPardonForm form("TARGET");
+
+		alice.incrementGrade();
 		std::cout << alice << std::endl;
-		std::cout << bob << std::endl;
 
-		// Test increment and decrement at boundary conditions
-		alice.incrementGrade(); // Should be fine
-		std::cout << alice << std::endl;
-		bob.decrementGrade(); // Should be fine
-		std::cout << bob << std::endl;
+		form.beSigned(alice);
+		std::cout << form << std::endl;
 
-		// Test increment and decrement beyond boundary conditions
-		Bureaucrat charlie("Charlie", 1);
-		charlie.incrementGrade(); // Should throw an exception
+		form.execute(alice);
 
 	} catch (const std::exception& e) {
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
+
+	std::cout << std::endl;
 
 	try {
-		Bureaucrat dave("Dave", 151); // Should throw an exception
+		Bureaucrat charles("Charles", 40);
+		RobotomyRequestForm form("TARGET");
+
+		form.beSigned(charles);
+		std::cout << form << std::endl;
+
+		form.execute(charles);
+		form.execute(charles);
+
+		charles.executeForm(form);
+		charles.executeForm(form);
+
+
 	} catch (const std::exception& e) {
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
+
+	std::cout << std::endl;
 
 	try {
-		// Test constructing Forms with valid grades
-		Form formA("FormA", 50, 25);
-		Bureaucrat elena("Elena", 49);
-		formA.beSigned(elena); // Should succeed
-		std::cout << formA << std::endl;
+		Bureaucrat Jean("Jean", 130);
+		ShrubberyCreationForm form("TARGET");
 
-		// Test signing a form with insufficient grade
-		Bureaucrat fred("Fred", 51);
-		formA.beSigned(fred); // Should throw an exception
+		form.beSigned(Jean);
+		std::cout << form << std::endl;
+
+		form.execute(Jean);
 
 	} catch (const std::exception& e) {
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
-
-	try {
-		// Constructing a Form with invalid grades
-		Form formB("FormB", 45, 151); // Should throw an exception
-	} catch (const std::exception& e) {
-		std::cerr << "Exception caught: " << e.what() << std::endl;
-	}
-
-	return 0;
 }
+
 

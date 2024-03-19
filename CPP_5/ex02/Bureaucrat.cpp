@@ -6,7 +6,7 @@
 /*   By: blandineberthod <blandineberthod@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 20:48:54 by bberthod          #+#    #+#             */
-/*   Updated: 2024/03/13 15:49:59 by blandineber      ###   ########.fr       */
+/*   Updated: 2024/03/19 17:05:14 by blandineber      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,22 @@ void Bureaucrat::signForm(AForm& form)
 	else
 	{
 		std::cout << BLUE << _name << " couldn't sign " << form.getName() << " because his grade is too low" RESET << std::endl;
+		throw GradeTooLowException();
+	}
+}
+
+void Bureaucrat::executeForm(AForm const & form)
+{
+	if (form.getSignature() && _grade <= form.getGradeExec())
+	{
+		std::cout << BLUE << _name << " executes " << form.getName() << RESET << std::endl;
+		form.execute(*this);
+	}
+	else if (!form.getSignature())
+		std::cout << BLUE << _name << " couldn't execute " << form.getName() << " because the form hasn't been signed"<< RESET << std::endl;
+	else
+	{
+		std::cout << BLUE << _name << " couldn't execute " << form.getName() << " because his grade is too low" RESET << std::endl;
 		throw GradeTooLowException();
 	}
 }

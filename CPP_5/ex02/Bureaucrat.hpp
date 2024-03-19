@@ -6,7 +6,7 @@
 /*   By: blandineberthod <blandineberthod@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 20:47:55 by bberthod          #+#    #+#             */
-/*   Updated: 2024/03/13 15:50:09 by blandineber      ###   ########.fr       */
+/*   Updated: 2024/03/19 16:46:52 by blandineber      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include "color.hpp"
 # include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -38,6 +38,8 @@ class Bureaucrat
 		void decrementGrade(void);
 
 		void signForm(AForm& form);
+
+		void executeForm(AForm const & form);
 
 		class GradeTooHighException : public std::exception
 		{
