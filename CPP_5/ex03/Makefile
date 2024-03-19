@@ -6,7 +6,7 @@
 #    By: blandineberthod <blandineberthod@studen    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/05 20:42:35 by bberthod          #+#    #+#              #
-#    Updated: 2024/03/19 17:20:30 by blandineber      ###   ########.fr        #
+#    Updated: 2024/03/19 17:37:08 by blandineber      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = c++
 RM = rm -f
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = MoreForms
+NAME = Intern
 
 all: $(NAME)
 
